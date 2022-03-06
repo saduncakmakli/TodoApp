@@ -23,14 +23,14 @@ class WorksRepository(var application : Application) {
 
     fun addWork(yapilacak_is:String) {
         val job = CoroutineScope(Dispatchers.Main).launch {
-            val newWork = Work(0,yapilacak_is,"#FFFFFF")
+            val newWork = Work(0,yapilacak_is,"#FFFFFF", "", 0)
             vt.worksDao().addWorkDatabase(newWork)
         }
     }
 
-    fun updateWork(yapilacak_id:Int, yapilacak_is: String, yapilacak_color: String){
+    fun updateWork(yapilacak_id:Int, yapilacak_is: String, yapilacak_color: String, yapilacak_detay:String, yapilacak_completed:Int){
         val job = CoroutineScope(Dispatchers.Main).launch {
-            val updatingWork = Work(yapilacak_id,yapilacak_is, yapilacak_color)
+            val updatingWork = Work(yapilacak_id,yapilacak_is, yapilacak_color, yapilacak_detay, yapilacak_completed)
             vt.worksDao().updateWorkDatabase(updatingWork)
         }
     }
@@ -43,7 +43,7 @@ class WorksRepository(var application : Application) {
 
     fun removeWork(yapilacak_id:Int) {
         val job = CoroutineScope(Dispatchers.Main).launch {
-            val deletedWork = Work(yapilacak_id, "", "")
+            val deletedWork = Work(yapilacak_id, "", "", "", 0)
             vt.worksDao().removeWorkDatabase(deletedWork)
             gelAllWork()
         }

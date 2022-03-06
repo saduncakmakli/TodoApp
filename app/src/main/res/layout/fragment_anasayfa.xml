@@ -13,6 +13,7 @@
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/green_super_light"
         tools:context=".fragment.AnasayfaFragment">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -30,7 +31,6 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarAnasayfa"
-            app:title="@{anasayfaToolbarBaslik}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
@@ -39,14 +39,15 @@
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{anasayfaToolbarBaslik}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
-            android:adapter="@{workAdapter}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:adapter="@{workAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

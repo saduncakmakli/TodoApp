@@ -61,7 +61,7 @@ class WorkAdapter(var mContext:Context, var workListesi:List<Work>, var viewMode
                     val hexColor = java.lang.String.format("#%06X", 0xFFFFFF and color)
                     Log.e("ColorLog", hexColor)
                     t.constraintLayoutSatirCard.setBackgroundColor(Color.parseColor(hexColor))
-                    viewModel.krepo.updateWork(work.yapilacak_id,work.yapilacak_is,hexColor)
+                    viewModel.krepo.updateWork(work.yapilacak_id,work.yapilacak_is,hexColor,work.yapilacak_detay,work.yapilacak_completed)
                 }.create()
 
             colorPicker.show(fragmentManager, "color_picker")

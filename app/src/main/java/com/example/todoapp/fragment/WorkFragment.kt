@@ -39,7 +39,7 @@ class WorkFragment : Fragment() {
         viewModel = tempViewModel
     }
 
-    fun buttonGuncelleTikla(yapilacak_id:Int, yapilacak_is:String, yapilacak_color:String){
-        viewModel.update(yapilacak_id,yapilacak_is,yapilacak_color)
+    fun buttonGuncelleTikla(yapilacak_id:Int, yapilacak_is:String, yapilacak_color:String, yapilacak_detay:String, yapilacak_completed:Int){
+        viewModel.update(yapilacak_id,yapilacak_is,yapilacak_color, yapilacak_detay, yapilacak_completed)
     }
 }
