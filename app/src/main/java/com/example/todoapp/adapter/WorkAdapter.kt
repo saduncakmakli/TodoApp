@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.Navigation
@@ -65,6 +66,20 @@ class WorkAdapter(var mContext:Context, var workListesi:List<Work>, var viewMode
                 }.create()
 
             colorPicker.show(fragmentManager, "color_picker")
+        }
+
+        t.constraintLayoutCheckBox.setOnClickListener {
+            var degisim: Int
+            if (work.yapilacak_completed == 0)
+            {
+                degisim = 1
+                t.imageViewCheckboxCheck.visibility = View.VISIBLE
+            }else
+            {
+                degisim = 0
+                t.imageViewCheckboxCheck.visibility = View.INVISIBLE
+            }
+            viewModel.krepo.updateWork(work.yapilacak_id,work.yapilacak_is,work.yapilacak_color,work.yapilacak_detay,degisim)
         }
     }
 

@@ -5,6 +5,7 @@
 
     <data>
         <variable name="workObject" type="com.example.todoapp.entity.Work" />
+        <import type="android.view.View"/>
     </data>
 
     <LinearLayout
@@ -24,27 +25,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageViewCheckboxCheck"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:scaleType="centerInside"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageViewCheckboxOutline"
-                    app:layout_constraintEnd_toEndOf="@+id/imageViewCheckboxOutline"
-                    app:layout_constraintStart_toStartOf="@+id/imageViewCheckboxOutline"
-                    app:layout_constraintTop_toTopOf="@+id/imageViewCheckboxOutline"
-                    app:srcCompat="@drawable/checkbox_check_resim" />
-
-                <ImageView
-                    android:id="@+id/imageViewCheckboxOutline"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayoutCheckBox"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="16dp"
-                    android:scaleType="centerInside"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/checkbox_outline_resim" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewCheckboxCheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility='@{workObject.yapilacak_completed==0 ? View.INVISIBLE : View.VISIBLE}'
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewCheckboxOutline"
+                        app:layout_constraintEnd_toEndOf="@+id/imageViewCheckboxOutline"
+                        app:layout_constraintStart_toStartOf="@+id/imageViewCheckboxOutline"
+                        app:layout_constraintTop_toTopOf="@+id/imageViewCheckboxOutline"
+                        app:srcCompat="@drawable/checkbox_check_resim" />
+
+                    <ImageView
+                        android:id="@+id/imageViewCheckboxOutline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/checkbox_outline_resim" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ImageView
                     android:id="@+id/imageViewSilResim"
