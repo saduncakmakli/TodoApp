@@ -11,7 +11,8 @@ data class Work
     (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "yapilacak_id") @NotNull var yapilacak_id:Int,
-    @ColumnInfo(name = "yapilacak_is") @NotNull var yapilacak_is:String
+    @ColumnInfo(name = "yapilacak_is") @NotNull var yapilacak_is:String,
+    @ColumnInfo(name = "yapilacak_color") @NotNull var yapilacak_color:String
     ) :Serializable
 {
 

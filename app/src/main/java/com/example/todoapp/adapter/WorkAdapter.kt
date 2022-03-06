@@ -1,9 +1,8 @@
 package com.example.todoapp.adapter
 
 import android.content.Context
-import android.content.DialogInterface
-import android.content.res.Resources
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
@@ -11,7 +10,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.databinding.CardTasarimBinding
 import com.example.todoapp.entity.Work
-import com.example.todoapp.fragment.AnasayfaFragment
 import com.example.todoapp.fragment.AnasayfaFragmentDirections
 import com.example.todoapp.viewmodel.AnasayfaFragmentViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -50,14 +48,20 @@ class WorkAdapter(var mContext:Context, var workListesi:List<Work>, var viewMode
                     viewModel.krepo.removeWork(work.yapilacak_id)
                 }.show()
         }
+        t.constraintLayoutSatirCard.setBackgroundColor(Color.parseColor(work.yapilacak_color))
         t.imageViewSelectColor.setOnClickListener{
 
             val colorPicker: ColorPickerDialog = ColorPickerDialog.Builder()
-                .setInitialColor(Color.parseColor("#45FF53"))
+                .setInitialColor(Color.parseColor(work.yapilacak_color))
                 .setColorModel(ColorModel.HSV)
                 .setColorModelSwitchEnabled(true)
+                .setButtonOkText(android.R.string.ok)
+                .setButtonCancelText(android.R.string.cancel)
                 .onColorSelected{ color: Int ->
-                    //  use color
+                    val hexColor = java.lang.String.format("#%06X", 0xFFFFFF and color)
+                    Log.e("ColorLog", hexColor)
+                    t.constraintLayoutSatirCard.setBackgroundColor(Color.parseColor(hexColor))
+                    viewModel.krepo.updateWork(work.yapilacak_id,work.yapilacak_is,hexColor)
                 }.create()
 
             colorPicker.show(fragmentManager, "color_picker")

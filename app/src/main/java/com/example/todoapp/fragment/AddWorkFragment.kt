@@ -33,8 +33,8 @@ class AddWorkFragment : Fragment() {
         viewModel = tempViewModel
     }
 
-    fun buttonKaydetTikla(kisi_ad:String){
-        viewModel.add(kisi_ad)
+    fun buttonKaydetTikla(yapilacak_is:String){
+        viewModel.add(yapilacak_is)
     }
 }
 

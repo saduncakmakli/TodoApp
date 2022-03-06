@@ -43,7 +43,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:onClick="@{() -> workFragment.buttonGuncelleTikla(workObject.yapilacak_id,editTextWork.getText().toString())}"
+            android:onClick="@{() -> workFragment.buttonGuncelleTikla(workObject.yapilacak_id,editTextWork.getText().toString(),workObject.yapilacak_color)}"
             android:text="EDIT WORK"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
